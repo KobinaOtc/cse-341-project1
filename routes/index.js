@@ -4,6 +4,6 @@ router.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-router.get('/users', require('./users'));
+router.use('/users', require('./users'));
 
 module.exports = router;
