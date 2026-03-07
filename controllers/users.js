@@ -2,6 +2,8 @@ const mongodb = require('../data/database');
 const { ObjectId } = require('mongodb');
 
 const getAll = async (req, res) => {
+    const db = mongodb.getDb();
+    console.log('Database connection: ', db.databaseName); // Debugging line to check database connection
     const result = await mongodb.getDb().collection('users').find();
     result.toArray().then((users) => {
         res.setHeader('Content-Type', 'application/json');
